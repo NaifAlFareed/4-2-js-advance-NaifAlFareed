@@ -9,7 +9,7 @@ INSTRUCTIONS:
 */
 
 //You can uncomment the console.log code to check if your js file is connected with html file or not.
-//console.log("%cJS Lab Connected — Start completing the TODOs for Advance JavaScript!", "font-weight:bold; font-size:14px");
+console.log("%cJS Lab Connected — Start completing the TODOs for Advance JavaScript!", "font-weight:bold; font-size:14px");
 
 // ==========================
 // TODO-1: OBJECT with GETTERS & SETTERS
@@ -21,6 +21,37 @@ Task:
 3) Add a setter updateGpa(newGpa) or use a set accessor for gpa that validates 0.0–4.0.
 4) Create an instance/object and output its attributes using the getter(s).
 */
+const student = {
+   firstName: "Naif",
+   lastName: "AlFareed",
+   _gpa: 3.5, // Use an internal property
+
+   get fullName() {
+      return this.firstName + " " + this.lastName;
+   },
+
+   get gpa() {
+      return this._gpa; // Access the internal property
+   },
+
+   set gpa(value) {
+      if (value >= 0 && value <= 4) {
+         this._gpa = value; // Update the internal property
+      } else {
+         console.log("Invalid GPA. Must be between 0.0 and 4.0.");
+      }
+   }
+};
+
+console.log("TODO-1 fullName:", student.fullName);
+console.log("TODO-1 gpa (before):", student.gpa);
+student.gpa = 3.9;
+console.log("TODO-1 gpa (after set 3.9):", student.gpa);
+student.gpa = 4.5;
+console.log("TODO-1 gpa (after invalid set 4.5):", student.gpa);
+
+
+
 
 // ====================================
 // TODO-2: OBJECT AS MAP + for...in LOOP
